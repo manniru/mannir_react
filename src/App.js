@@ -5,6 +5,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import RaisedButtonExampleSimple from './material-ui-next/RaisedButtonExampleSimple'
+import ListDividers from './material-ui-next/demos/ListDividers'
 
 const style = {
   margin: 12,
@@ -13,12 +14,9 @@ const style = {
 const App = () => (
   <MuiThemeProvider>
 
-    <RaisedButtonExampleSimple/>
-
+    <ListDividers />
 
   </MuiThemeProvider>
 );
-
-//ReactDOM.render(<App />, document.getElementById('app'));
 
 export default App;
