@@ -10,6 +10,7 @@ import Select from 'material-ui/Select';
 import Input, { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import firebase from '../firebase'
+import Header from '../Mannir/Header'
 
 var faker = require('faker');
 
@@ -89,6 +90,7 @@ class RemitaForm extends React.Component {
     const { classes } = this.props;
   return (
     <div>
+    <Header />
       <form>
         <Paper style={{
           padding: 20,

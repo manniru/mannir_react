@@ -8,7 +8,7 @@ import RemitaList from './Remita/RemitaList'
 import MyYoutube from './Mannir/MyYoutube'
 import Router1 from './Mannir/Router1'
 import Main from "./Mannir/Main";
-
+//import Root from './Mannir/components/Root'
 //<VideoPlayer id={videoID} open={isVideoPlayerOpen} handleToggle={this.handleToggleVideoPlayer} />
 
 
