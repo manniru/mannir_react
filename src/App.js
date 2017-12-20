@@ -4,8 +4,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButtonExampleSimple from './material-ui-next/RaisedButtonExampleSimple'
-import ListDividers from './material-ui-next/demos/ListDividers'
+//import RaisedButtonExampleSimple from './material-ui-next/RaisedButtonExampleSimple'
+import Cards1 from 
+'./material-ui-next/demos/Cards1'
+import RemitaForm from './Remita/RemitaForm'
+//import AsyncStorageExample from './material-ui-next/AsyncStorageExample'
+
+import {
+  Router,
+  Route,
+  Link,
+  IndexRoute,
+  browserHistory
+} from 'react-router';
 
 const style = {
   margin: 12,
@@ -14,7 +25,7 @@ const style = {
 const App = () => (
   <MuiThemeProvider>
 
-    <ListDividers />
+    <RemitaForm />
 
   </MuiThemeProvider>
 );
