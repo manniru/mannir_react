@@ -41,7 +41,7 @@ class RemitaForm extends React.Component {
 
 
   handleDemo = () => {
-    var amounts = [1000, 2000, 3000, 5000]
+    var amounts = [1000, 2000, 3000, 4000, 5000]
 
     this.setState({
       open: true,

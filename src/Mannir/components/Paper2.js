@@ -44,7 +44,7 @@ class Paper2 extends React.Component {
       >
 
         <Typography type="headline" style={{ color: 'white' }} align="center">
-          Remita Dashboard
+        {this.props.title}
         </Typography>
 
         <Typography type="title" align="center">
@@ -52,7 +52,7 @@ class Paper2 extends React.Component {
         </Typography>
 
         <Typography type="subheading" style={{}} align="center">
-          Remita Approved: 3,829 (N4,783,900)
+          Remita Approved: 3,870 (N4,783,900)
         </Typography>
 
         <Typography type="body1" style={{ color: 'white' }} align="center">
@@ -65,6 +65,7 @@ class Paper2 extends React.Component {
 }
 
 Paper2.propTypes = {
+  title: PropTypes.string,
   num: PropTypes.string,
   sum: PropTypes.string
 };
