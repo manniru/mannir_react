@@ -6,7 +6,11 @@ import firebase from '../firebase'
 import Header from '../Mannir/Header'
 import OverridesTheme from '../Mannir/components/OverridesTheme'
 import Paper2 from '../Mannir/components/Paper2'
+///import data from './data'
+
 const ref = firebase.database().ref('/react');
+
+
 
 const paper_style = {
   margin: 10,
@@ -22,6 +26,7 @@ class RemitaDashboard extends React.Component {
     this.state = {
       p1: '',
       num1: '',
+      data: null,
     }
 
     //this.handleSubmit = this.handleSubmit.bind(this);
@@ -31,16 +36,32 @@ class RemitaDashboard extends React.Component {
   componentDidMount() {
     
     ref.child("/remita").on('value', snapshot => {
+      var data_val = snapshot.val();
       var num = snapshot.numChildren();
       this.setState({
         n1: num + '',
         num1: num + '',
+        data: data_val,
         })
     });
   }
 
   render() {
-    console.log(this.state.n1)
+    //console.log(this.state.n1)
+    var data = this.state.data;
+    //console.log(data);
+
+    if (data != null) {
+      var num1 = Object.keys(data).length;
+
+      var sum1 = 0;
+      var smallData = Object.keys(data).map(function (d, i) {
+        sum1 = sum1 + data[d].amount
+      });
+
+    }
+    
+
     return (
       <div>
       <Header />
@@ -48,7 +69,7 @@ class RemitaDashboard extends React.Component {
 
       <br />
       <br />
-      <Paper2 num={this.state.num1} sum="4,151,001" /><br />
+      <Paper2 num={this.state.num1} sum={sum1} /><br />
       <Paper2 num="4,152" sum="4,151,002" /><br />
       <Paper2 num="4,153" sum="4,151,003" /><br />
       <Paper2 num="4,154" sum="4,151,004" /><br />
