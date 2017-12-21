@@ -13,6 +13,7 @@ import AccountCircle from 'material-ui-icons/AccountCircle';
 import FolderIcon from 'material-ui-icons/Folder';
 //import injectTapEventPlugin from 'react-tap-event-plugin'
 //injectTapEventPlugin()
+//import DemoAutoPlay from './components/DemoAutoPlay'
 
 const styles = {
   root: {
@@ -122,7 +123,6 @@ class Header extends React.Component {
         </Toolbar>
       </AppBar>
 
-      
       
     </div>
     );

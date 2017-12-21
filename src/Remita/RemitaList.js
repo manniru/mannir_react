@@ -35,11 +35,11 @@ function createData(name, calories, fat, carbs, protein) {
 */
 
 const columnData = [
-  { id: 'name', numeric: false, disablePadding: true, label: 'Dessert (100g serving)' },
-  { id: 'calories', numeric: true, disablePadding: false, label: 'Calories' },
-  { id: 'fat', numeric: true, disablePadding: false, label: 'Fat (g)' },
-  { id: 'carbs', numeric: true, disablePadding: false, label: 'Carbs (g)' },
-  { id: 'protein', numeric: true, disablePadding: false, label: 'Protein (g)' },
+  { id: 'name', numeric: false, disablePadding: true, label: 'Payer Name' },
+  { id: 'calories', numeric: true, disablePadding: false, label: 'Phone no' },
+  { id: 'fat', numeric: true, disablePadding: false, label: 'Amount' },
+  { id: 'carbs', numeric: true, disablePadding: false, label: 'Email' },
+  { id: 'protein', numeric: true, disablePadding: false, label: 'ServiceTyee' },
 ];
 
 class EnhancedTableHead extends React.Component {
@@ -265,15 +265,17 @@ class RemitaList extends React.Component {
 
   componentDidMount() {
 
-    ref.child("/data").on('value', snapshot => {
-      //const val = snapshot.val();
+    ref.child("/remita").on('value', snapshot => {
+      var data_val =  snapshot.val();
+      var data = Object.values(data_val);
+      
       //console.log(val);
       // this.setState({
       //   v1: val.calories,
       // })
 
       this.setState({
-        data: snapshot.val(),
+        data: data,
       });
 
     });
@@ -330,10 +332,10 @@ class RemitaList extends React.Component {
                           <Checkbox checked={isSelected} />
                         </TableCell>
                         <TableCell padding="none">{n.name}</TableCell>
-                        <TableCell numeric>{n.calories}</TableCell>
-                        <TableCell numeric>{n.fat}</TableCell>
-                        <TableCell numeric>{n.carbs}</TableCell>
-                        <TableCell numeric>{n.protein}</TableCell>
+                        <TableCell numeric>{n.phone}</TableCell>
+                        <TableCell numeric>{n.amount}</TableCell>
+                        <TableCell numeric>{n.mail}</TableCell>
+                        <TableCell numeric>{n.servicetype}</TableCell>
                       </TableRow>
                     );
                   })}
