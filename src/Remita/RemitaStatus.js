@@ -15,16 +15,36 @@ const styles = theme => ({
   }),
 });
 
-function Paper1(props) {
-  const { classes } = props;
-  return (
+class RemitaStatus extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {value: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
+  }
+
+  render() {
+    const { classes } = this.props;
+
+    return (
     <div>
       <Paper className={classes.root} elevation={4}>
         <Typography type="headline" component="h3">
-          This is a sheet of paper.
+          Your RRR Status is: Pending
         </Typography>
         <Typography component="p">
-          Paper can be used to build surface or other elements for your application.
+          Your Fullname is: fullname, Amoun: amount
         </Typography>
       </Paper>
 
@@ -35,12 +55,14 @@ function Paper1(props) {
         marginBottom: 40
       }}>
 
-        <form>
+        <form onSubmit={this.handleSubmit}>
 
           <TextField
-            id="name"
-            label="Name"
+            id="rrr"
+            name="rrr"
+            label="Enter your RRR"
             margin="normal"
+            value={this.state.value} onChange={this.handleChange}
           />
           <br />
 
@@ -48,33 +70,23 @@ function Paper1(props) {
             Submit
           </Button>
 
+          <label>
+          Name:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="Submit" />
+
         </form>
 
       </Paper>
 
-      <br />
-      <Paper>
-
-        <TextField
-          id="orderID"
-          label="With placeholder"
-          placeholder="Placeholder"
-          margin="normal"
-        />
-
-        <br />
-        <Button raised color="primary">
-          Submit
-          </Button>
-
-      </Paper>
-
     </div>
-  );
+ );
+}
 }
 
-Paper1.propTypes = {
+RemitaStatus.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Paper1);
+export default withStyles(styles)(RemitaStatus);

@@ -10,15 +10,25 @@ import {
 import MyYoutube from './MyYoutube'
 import RemitaList from '../Remita/RemitaList'
 import RemitaForm from '../Remita/RemitaForm'
+import RemitaStatus from '../Remita/RemitaStatus'
 import Header from './Header'
 import RemitaDashboard from '../Remita/RemitaDashboard'
+import Test1 from '../Tests/Test1'
+import MyForm from '../Examples/MyForm'
+import SMS from './SMS'
+import Accounts from './Accounts'
 
 const Router1 = () => (
   <Router>
     <div>
       <Switch>
-        <Route path="/dashboard" component={RemitaDashboard} />
-        <Route path="/youtube" component={MyYoutube} />
+      <Route path="/status" component={RemitaStatus} />
+      <Route path="/status1" component={MyForm} />
+      <Route path="/test1" component={Test1} />
+      <Route path="/sms" component={SMS} />
+      <Route path="/acc" component={Accounts} />
+      <Route path="/dashboard" component={RemitaDashboard} />
+      <Route path="/youtube" component={MyYoutube} />
         <Route path="/RemitaForm" component={RemitaForm} />
         <Route path="/table" component={RemitaList} />
         <Route path="/" exact component={Header} />

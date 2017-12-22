@@ -7,6 +7,8 @@ import Header from '../Mannir/Header'
 import OverridesTheme from '../Mannir/components/OverridesTheme'
 import Paper2 from '../Mannir/components/Paper2'
 import data from './data'
+import C1 from '../Mannir/test'
+import config from './Remita'
 
 const ref = firebase.database().ref('/react');
 
@@ -65,24 +67,24 @@ class RemitaDashboard extends React.Component {
 
 
         var data_1000 = Object.values(data_val).filter(function (d) {
-          return d.amount == 1000;
+          return d.amount === 1000;
         });
 
 
         var data_2000 = Object.values(data_val).filter(function (d) {
-          return d.amount == 2000;
+          return d.amount === 2000;
         });
 
         var data_3000 = Object.values(data_val).filter(function (d) {
-          return d.amount == 3000;
+          return d.amount === 3000;
         });
 
         var data_4000 = Object.values(data_val).filter(function (d) {
-          return d.amount == 4000;
+          return d.amount === 4000;
         });
 
         var data_5000 = Object.values(data_val).filter(function (d) {
-          return d.amount == 5000;
+          return d.amount === 5000;
         });
 
         var num1 = Object.keys(data_1000).length;
@@ -138,6 +140,7 @@ class RemitaDashboard extends React.Component {
 
   render() {
 
+    console.log(config.merchantId)
     /*
     var data = this.state.data;
     //console.log(data);
@@ -202,7 +205,7 @@ class RemitaDashboard extends React.Component {
       </Typography>
       </Paper>
 
-
+      <C1 />
 
       </div>
 
