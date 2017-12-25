@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Accounts.css';
+import firebase from '../firebase'
+const ref = firebase.database().ref('/react');
 
 var faker = require('faker');
 
@@ -52,8 +54,69 @@ for (var i = 0; i < 20; i++) {
 //     console.log(a.date)
 // })
 
-console.log(faker.date.between('2015-01-01', '2015-12-31'))
+const test_insert = (p1) => {
+    var time = (new Date).getTime();
+
+    const itemsRef = firebase.database().ref('/react/test/acc/' + time);
+    itemsRef.set(data);
+    console.log('records saved!');
+}
+
+//test_insert();
+
+///localStorage.setItem('testObject', JSON.stringify(data));
+
+
+
 class Accounts extends Component {
+    constructor() {
+        super();
+        this.state = {
+          data: [],
+          num: null,
+        }
+    }
+
+    onSearch = (e) => {
+        e.preventDefault();
+    
+        const { value } = this.input;
+    
+        if (value === '') {
+          return;
+        }
+    
+        fetch('https://hn.algolia.com/api/v1/search?query=' + value)
+          .then(response => response.json())
+          .then(result => this.onSetResult(result));
+    }
+    
+    onSetResult = (result) => {
+        this.setState({ hits: result.hits });
+    }
+
+    componentDidMount() {
+
+        /* FIREBASE
+        ref.child("/test/acc/1513953107248").on('value', snapshot => {
+            var num = snapshot.numChildren();
+            var val = snapshot.val();
+
+            this.setState({
+                num: num + '',
+                data: val,
+              });
+        });
+        */
+
+        var val = JSON.parse(localStorage.getItem('testObject'))
+        this.setState({
+            //num: num + '',
+            data: val,
+          });
+    }
+    
+
     render() {
 
 
@@ -105,7 +168,7 @@ class Accounts extends Component {
         </tr>
         
         {
-            data.map(a => {
+            this.state.data.map(a => {
                 return (     
                     <tr>
                     <td>{a.date}</td>

@@ -13,6 +13,17 @@ import config from './Remita'
 const ref = firebase.database().ref('/react');
 
 
+const num_rows = () => {
+  async function fetchAsync () {
+    let response = await fetch('http://localhost:3001/api/_application/count');
+    let data = await response.json();
+    return data;
+    }
+    
+    return fetchAsync()
+    .then(data => { return data[0].no_of_rows} )
+    .catch(reason => console.log(reason.message)) 
+}
 
 const paper_style = {
   margin: 10,
@@ -38,6 +49,7 @@ class RemitaDashboard extends React.Component {
       sum4: '',
       sum5: '',
       data: null,
+      num_rows: 0,
     }
 
     //this.handleSubmit = this.handleSubmit.bind(this);
@@ -135,12 +147,14 @@ class RemitaDashboard extends React.Component {
 
     });
 
-
+    num_rows().then(data => { this.setState({num_rows: data}); } )
   }
 
   render() {
 
-    console.log(config.merchantId)
+
+
+    //console.log(config.merchantId)
     /*
     var data = this.state.data;
     //console.log(data);
@@ -171,6 +185,7 @@ class RemitaDashboard extends React.Component {
 
     
 
+
     return (
       <div>
       <Header />
@@ -192,7 +207,7 @@ class RemitaDashboard extends React.Component {
             Online Application
       </Typography>
           <Typography type="title" gutterBottom>
-            Title
+            IKCOE Number of Applications {this.state.num_rows}
       </Typography>
           <Typography type="subheading" gutterBottom>
             Subheading

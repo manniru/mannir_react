@@ -1,0 +1,8 @@
+
+var Applicant = {
+    
+}
+
+var Student = {
+
+}

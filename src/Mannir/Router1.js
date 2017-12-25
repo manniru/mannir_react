@@ -17,6 +17,8 @@ import Test1 from '../Tests/Test1'
 import MyForm from '../Examples/MyForm'
 import SMS from './SMS'
 import Accounts from './Accounts'
+import Local from '../Examples/Local'
+//import PDF1 from './PDF1'
 
 const Router1 = () => (
   <Router>
@@ -27,6 +29,7 @@ const Router1 = () => (
       <Route path="/test1" component={Test1} />
       <Route path="/sms" component={SMS} />
       <Route path="/acc" component={Accounts} />
+      <Route path="/local" component={Local} />
       <Route path="/dashboard" component={RemitaDashboard} />
       <Route path="/youtube" component={MyYoutube} />
         <Route path="/RemitaForm" component={RemitaForm} />
